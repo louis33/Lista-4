@@ -1,0 +1,118 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX 100
+
+typedef struct {
+
+    string nome;
+    int CPF;
+
+}Cliente;
+
+typedef struct {
+
+    Cliente vetor[max];
+    int numElem;
+
+}Lista;
+
+void criarLista( Lista* lista){
+
+    Lista->numElem = 0;
+
+}
+
+void adicionarFinal(Lista* Lista, Cliente c1){
+
+    Lista->vetor[Lista->numElem] = c1;
+    Lista->numElem = Lista->numElem+1;
+
+}
+
+void inserirPosiçao(Lista* lista, int pos, Cliente c1){
+
+    int i;
+    if(pos >= Lista->numElem){
+
+        adicionarFinal(lista, c1);
+
+    }
+
+    else{
+
+        for(i = Lista->numElem; i > pos; i--){
+
+            Lista->vetor[i] = Lista->vetor[i-1];
+
+        }
+        Lista->vetor[pos] = c1;
+        Lista->numElem = Lista->numElem + 1;
+
+
+    }
+
+void iserirInicio(Lista* lista, int pos, Cliente c1){
+
+    inserirPosiçao(lista,0,c1);
+
+}
+
+Lista* buscarIndice(Lista lista, Cliente c1){
+
+    int i;
+    for(i = 0; i <= Lista->numElem; i--){
+
+        if(Lista->vetor[i] == c1){
+
+            return i;
+
+        }
+        else
+            printf("O cliente nao existe");
+
+    }
+
+}
+
+Lista* removerElemento(Lista lista,int pos ,Cliente c1){
+
+    int i;
+    int aux;
+    if(pos == Lista->vetor[Lista->numElem]){
+      Lista->vetor[Lista->numElem] = NULL;
+
+    }
+    aux = Lista->vetor[pos];
+    Lista->vetor[pos] = NULL;
+        for(i = Lista->numElem; i > pos; i--){
+
+        Lista->vetor[i] = Lista->vetor[i-1];
+
+    }
+
+    Lista->numElem = Lista->numElem - 1;
+
+    return &aux;
+}
+
+void deletarLista(Lista lista){
+
+    int i;
+    for(i = 0; i < Lista->numElem; i++){
+
+        Lista->vetor[i] = null;
+
+    }
+
+}
+
+
+}
+int main(){
+
+    Lista lista;
+    criarLista(&lista);
+    adicionar(&lista, c1)
+
+
+}
