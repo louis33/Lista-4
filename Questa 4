@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define max 100
+
+typedef struct {
+
+    string nome;
+    int CPF;
+}Cliente;
+
+typedef struct {
+
+    Cliente filaCliente[max];
+    int tamanho_fila;
+
+}TFila;
+
+void inicializarFila(TFila* pfila){
+
+    pfila->tamanho_fila = 0;
+
+}
+
+void enserir(TFila* pfila, Cliente c1){
+
+    if(pfila->tamanho_fila < 100){
+
+        c1 = pfila->filaCliente[pfila->tamanho_fila];
+        pfila->tamanho_fila = pfila->tamanho_fila + 1;
+    }
+
+    else{
+
+        printf("Fila cheia");
+
+    }
+
+
+
+}
+
+Cliente removerElemento(TFila* pfila){
+
+    Cliente a;
+
+    Cliente a = pfila->filaCliente[pfila->tamanho_fila];
+    if(pfila->tamanho_fila >= 0){
+
+        for(int i = 0; i < pfila->tamanho_fila - 1; i++){
+
+            pfila->filaCliente[i] = pfila->filaCliente[i+1];
+        }
+        pfila->tamanho_fila = pfila_tamanho_fila - 1;
+    }
+
+    else {
+
+        printf("A fila esta vazia");
+    }
+
+    return a;
+
+}
+
+int main()
+{
+    TFila fila;
+    Cliente c1;
+
+    inicializarFila(&fila);
+    enfileirar(&fila, c1);
+    desinfilerar(&fila, c1);
+
+}
