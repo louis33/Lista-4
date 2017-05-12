@@ -56,9 +56,9 @@ Cliente removerElemento(TPilha* pilha){
 int main()
 {
     Cliente c1;
-    TPilha* a;
+    TPilha a;
     
-    inicializarPilha(a);
-    iserirElemento(a,c1);
-    removerElemento(a);
+    inicializarPilha(&a);
+    iserirElemento(&a,c1);
+    removerElemento(&a);
 }
