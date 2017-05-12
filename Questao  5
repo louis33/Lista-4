@@ -1,0 +1,226 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct{
+
+    string nome[100];
+    int CPF;
+}Clientes;
+
+typedef struct{
+
+    int info;
+    struct TipoNo *proximo;
+    struct TipoNo *anterior;
+
+}TipoNo
+
+typedef struct{
+
+    TipoNo* inicio = NULL;
+    TipoNo* fim = NULL;
+
+}Cliente;
+
+void inicializarLista(Cliente* c1){
+
+    c1->incio = NULL;
+    c1->fim = NULL;
+
+}
+
+void inserirNoInicio(Ciente* c1){
+    TipoNo* novoElemento;
+    novoElemento = new TNo;
+    
+    novoElemento->proximo = NULL;
+    novoElemento->anterior = NULL;
+    
+    c1 = novoElemento->info;
+    
+    if(c1->inicio == NULL){
+        
+        c1->proximo = novoElemento;
+        c1->anterior = novoElemento;
+        
+    }
+    
+    else{
+        
+        c1->inicio->anterior = novoElemento;
+        novoElemento->proximo = c1->inicio;
+        c1->inicio = novoElemento;
+        
+    }
+}
+
+void inserirNoFim(Cliente* c1){
+
+    TipoNo* novoElemento;
+    novoElemento = new TipoNo;
+    
+    c1 = novoElemento->info;
+    
+    novoElemento->inicio = NULL;
+    novoElemento->fim = NULL;
+    
+    if(c1->inicio = NULL){
+        
+        c1->inicio = novoElemento;
+        c1->fim = novoElemento;
+        
+    }
+
+    else{
+        
+        c1->fim->proximo = novoElemento;
+        novoElemento->anterior = c1->fim;
+        c1->fim = novoElemento;
+        
+    }
+}
+
+void apresentarPeloInicio(Cliente* c1){
+
+    TipoNo* aux;
+    
+    if(c1->inicio = NULL){
+        
+        printf("--------Lista vazia------"\n\n);
+        
+    }
+
+    else{
+        
+        aux = cliente->inicio;
+        while(aux != NULL){
+            
+            printf("Info = %d\n", aux->info);
+            aux = aux->proximo;
+            
+        }
+        
+        printf("- - - fim da lista - - -\n\n\n");
+    }
+    
+    
+    getchar();
+}
+
+void apresentarPeloFim(Cliente* c1){
+
+    TipoNo* aux;
+    if(cliente->fim = NULL){
+        
+        printf("- - - fila vazia - - -\n\n");
+        
+    }
+    
+    aux = c1->fim;
+    while(aux != NULL){
+        
+        printf("info = %d\n", aux->info);
+        aux = aux->anterior;
+        
+    }
+    
+    printf("- - - fim da lista - - -\n\n");
+    getchar();
+}
+
+TipoNo *buscarDado(Clientes c1){
+
+    TipoNo* ptr;
+    if(inicio == NULL){
+        
+        return NULL;
+    }
+    
+    ptr = inicio;
+    while(ptr != NULL){
+        if(ptr->info == c1){
+            
+            return (ptr);
+            
+        }
+        else{
+            
+            ptr = ptr->proximo;
+            
+        }
+        
+    }
+
+    return NULL;
+}
+
+int remover_inicio(Clientes c1){
+
+    TipoNo *elemen_atual, *elemen_prox, *elemen_ant;
+    Clientes dado;
+    
+    dado = c1;
+    
+    if(inicio == NULL){
+        
+        return 0;
+        
+    }
+
+    else{
+        
+        elemen_atual = inicio;
+        while(elemen_atual != NULL){
+            
+            elem_prox = elem_atual->prox;
+            elem_ant = elem_atual->ante;
+            
+            if(elemen_atual->info == dado)
+                if(elem_ant != NULL ){
+                    if(elem_prox != NULL){
+                        
+                        elem_ant->prox = elem_prox;
+                        elem_prox->ant = elem_ant;
+                        free(elem_atual);
+                        break
+                        
+                        
+                    else {
+                        
+                        
+                        elemen_ant->prox = NULL;
+                        fim = elemen_ant;
+                        free(elem_atual);
+                        break;
+                        
+                    }
+                    
+                    else{
+                        
+                        if(elemen->prox != NULL){
+                            
+                            elemen_prox->ante = NULL;
+                            inicio = elemen_prox;
+                            free(elemen_atual);
+                            break;
+                            
+                        }
+                        
+                     else{
+                        
+                        elem_atual = elem_atual->prox;
+                        
+                     }  
+                     
+                     printf("O elemento nao se encontra na lista")
+                      
+                    }                        
+                    }
+                    
+                    
+                }
+        }
+        
+    }
+    
+}
