@@ -1,0 +1,177 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct
+{
+    string cliente;
+    int CPF;
+}cliente
+
+typedef struct ListaCliente
+{
+    string cliente;
+    int CPF;
+    TipoNo *inicio;
+    TipoNo *fim;
+
+}ListaCliente;
+
+typedef struct TipoNo{
+
+    cliente dado;
+    struct TipoNo *prox;
+
+}TipoNo;
+
+void inicializar(ListaCliente* plista){
+
+    plista->inicio = NULL;
+    plista->fim = NULL;
+
+}
+
+void inserir(ListaCliente* plista, cliente dado )
+{
+
+    TipoNo *NovoElemento;
+    NovoElemento = new TipoNo;
+
+    printf("\n Informe o valor para lista circular")
+    scanf("%s",&NovoElemento->dado);
+    NovoElemento->prox = NULL;
+
+    if(plista->inicio == NULL){
+
+        plista->inicio = NovoElemento;
+
+    }
+
+    else{
+
+        plista->prox->fim = NovoElemento;
+
+    }
+
+    plista->fim = NovoElemento;
+    NovoElemento->prox = plista->inicio;
+
+}
+
+void apresentar(TipoLista* pLista){
+
+    TipoNo *aux;
+    if(pLista->inicio == NULL){
+
+        printf("- - - Fim da lista - - -\n\n");
+        return;
+    }
+
+    else{
+
+        aux = pLista->inicio;
+
+        do{
+
+            printf("\nInfo = %d", aux->dado);
+            aux = aux->prox;
+
+            while(aux != pLista->inicio){
+
+
+                printf("Fim da lista");
+                getchar();
+            }
+
+        }
+    }
+}
+
+void consultar(TipoElemento* plista)
+{
+    if(plista->inicio = NULL)
+    {
+            printf("- - - fim da lista - - -\n\n");
+
+    }
+    else
+    {
+
+        TipoNo* aux;
+        int pesquisa;
+        int achou = 0;
+
+        printf("Informe o dado a ser pesquisado: ");
+        scanf("%d", &pesquisa);
+
+        aux = plista->inicio;
+
+        do
+        {
+            if(aux->dado == pesquisa)
+            {
+                printf("+++Achou o %d\n", aux->dado);
+                achou = 1;
+
+            }
+            else {
+
+                aux = aux->prox;
+
+            }
+
+
+        }
+    } while(aux != plista->inicio && achou == 0){
+        if(achou == 0){
+
+            printf("O valor nao foi encontrado");
+
+        }
+
+    getchar();
+    }
+
+}
+
+void excluir(TipoLista* plista)
+{
+    if(plista->inicio == NULL){
+
+        printf("- - - Fim da lista - - -\n\n");
+
+    }
+
+    else{
+
+        TipoNo *atual, *anterior;
+        int pesquisa;
+
+        printf("\nIforme o dado a ser excluido: ");
+        scanf("%d", &pesquisa);
+
+        atual = plista->inicio;
+        anterior = plista->inicio;
+
+        do
+        {
+            if(atual->dado == pesquisa){
+
+                if(atual == plista->inicio ){
+
+                    plista->inicio = atual->prox;
+                    plista->fim->prox = atual->prox;
+                    free(atual);
+                    break;
+                }
+
+            }
+
+            else{
+
+                anterior = atual;
+                atual = atual->prox;
+
+            }
+        }while(atual != plista->inicio);
+    }
+}
